@@ -1,0 +1,27 @@
+Summary:
+	Test execution start time       : 2020-05-25 16:58:47 UTC
+	Test execution end time         : 2020-05-25 16:58:47 UTC
+	Test execution time             : 26ms
+	Test execution time (aggregated): 26ms
+	Number of features              : 1
+	Number of scenarios             : 1
+	Passed scenarios                : 1
+	Bypassed scenarios              : 0
+	Failed scenarios                : 0
+	Ignored scenarios               : 0
+	Number of steps                 : 3
+	Passed steps                    : 3
+	Bypassed steps                  : 0
+	Failed steps                    : 0
+	Ignored steps                   : 0
+	Not Run steps                   : 0
+
+Feature: Logistica feature
+	In order to buy products
+	        As a costumer
+	        I want to add products to basket
+
+	Scenario: No product in stock [Ticket-6] - Passed (26ms)
+		Step 1: GIVEN iam in - Passed (8ms)
+		Step 2: WHEN add product - Passed (<1ms)
+		Step 3: THEN i can - Passed (<1ms)

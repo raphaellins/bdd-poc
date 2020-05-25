@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestResults>
+  <Summary TestExecutionStart="2020-05-25T16:58:47.355499Z" TestExecutionEnd="2020-05-25T16:58:47.3815671Z" TestExecutionTime="PT0.0260681S">
+    <Features Count="1" />
+    <Scenarios Count="1" Passed="1" Bypassed="0" Failed="0" Ignored="0" />
+    <Steps Count="3" Passed="3" Bypassed="0" Failed="0" Ignored="0" NotRun="0" />
+  </Summary>
+  <Feature Name="Logistica feature" RuntimeId="57ad4a7b-c75e-4032-85cb-2857fca06d01">
+    <Description>In order to buy products
+        As a costumer
+        I want to add products to basket</Description>
+    <Scenario Status="Passed" Name="No product in stock" ExecutionStart="2020-05-25T16:58:47.355499Z" ExecutionTime="PT0.0260681S" RuntimeId="b67e77e5-8d80-4a26-8204-2c9f64ce24e9">
+      <Name Format="No product in stock" />
+      <Label Name="Ticket-6" />
+      <Step Status="Passed" Number="1" Name="GIVEN iam in" ExecutionStart="2020-05-25T16:58:47.365769Z" ExecutionTime="PT0.00897S" RuntimeId="33f8fc70-8459-432d-ad5c-aedc2b0ef7e4">
+        <StepName StepType="GIVEN" Format="iam in" />
+      </Step>
+      <Step Status="Passed" Number="2" Name="WHEN add product" ExecutionStart="2020-05-25T16:58:47.380197Z" ExecutionTime="PT0.0003153S" RuntimeId="0f3c6503-d84e-469f-9249-ca511643312d">
+        <StepName StepType="WHEN" Format="add product" />
+      </Step>
+      <Step Status="Passed" Number="3" Name="THEN i can" ExecutionStart="2020-05-25T16:58:47.380562Z" ExecutionTime="PT0.000118S" RuntimeId="5717bd8a-7897-4f79-94fb-165537cdbcec">
+        <StepName StepType="THEN" Format="i can" />
+      </Step>
+    </Scenario>
+  </Feature>
+</TestResults>
