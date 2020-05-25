@@ -1,0 +1,1 @@
+cd logisticapp/ && dotnet run

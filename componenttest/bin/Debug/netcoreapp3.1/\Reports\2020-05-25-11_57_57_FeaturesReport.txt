@@ -1,0 +1,33 @@
+Summary:
+	Test execution start time       : 2020-05-25 11:57:57 UTC
+	Test execution end time         : 2020-05-25 11:57:57 UTC
+	Test execution time             : 60ms
+	Test execution time (aggregated): 60ms
+	Number of features              : 1
+	Number of scenarios             : 1
+	Passed scenarios                : 0
+	Bypassed scenarios              : 0
+	Failed scenarios                : 1
+	Ignored scenarios               : 0
+	Number of steps                 : 3
+	Passed steps                    : 1
+	Bypassed steps                  : 0
+	Failed steps                    : 1
+	Ignored steps                   : 0
+	Not Run steps                   : 1
+
+Feature: Logistica feature
+	In order to buy products
+	        As a costumer
+	        I want to add products to basket
+
+	Scenario: No product in stock [Ticket-6] - Failed (60ms)
+		Step 1: GIVEN iam in - Passed (9ms)
+		Step 2: WHEN add product - Failed (34ms)
+		Step 3: THEN i can - NotRun
+		Details:
+			Step 2: NUnit.Framework.AssertionException :   Expected: False
+				  But was:  True
+				
+				at componenttest.Features.Logistica_feature.When_add_product() in /Users/raphael/developer/workspace/bddpoc/componenttest/Features/Logistica_feature.Steps.cs:line 19
+				at LightBDD.Framework.Scenarios.Implementation.BasicStepCompiler.StepExecutor.Execute(Object context, Object[] args)

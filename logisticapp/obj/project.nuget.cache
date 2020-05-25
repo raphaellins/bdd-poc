@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9AXjvRv+AvoWSrbf8a9jpOpHeh2HKdDr/eqkHcCvJGuJVdUjJfv6H/3fHP+xkMT305fF2NqYPjJs2zw2yZ2IaQ==",
+  "dgSpecHash": "ouuiWEES1xi12/lITp4FeUjOXKL5FIQ5c1j9mWfwkhIrgLzAY3d/1IVjMeNEeB/sSgRs7ZZEsWfRJzxmki8VEQ==",
   "success": true,
-  "projectFilePath": "/Users/raphael/developer/workspace/bddpoc/pisomsapp/pisomsapp.csproj",
+  "projectFilePath": "/Users/raphael/developer/workspace/bddpoc/logisticapp/pisomsapp.csproj",
   "expectedPackageFiles": [
     "/Users/raphael/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/raphael/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
