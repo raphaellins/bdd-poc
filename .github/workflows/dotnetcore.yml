@@ -27,5 +27,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: BDD
-      run: python ../run-bdd.py
+    - name: Docker Build
+      run: docker build -t aspnetapp ../
+  
