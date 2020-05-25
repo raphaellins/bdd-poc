@@ -23,7 +23,7 @@ namespace componenttest.Features
 
         private void When_add_product()
         {
-            Assert.That(true, Is.True);
+            Assert.That(true, Is.False);
         }
 
         private void Then_i_can()
