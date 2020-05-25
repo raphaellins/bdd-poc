@@ -1,9 +1,12 @@
 name: .NET Core
 
 on:
+  push:
+    branches:
+      - 'feature/**'
   pull_request:
     branches:
-      - 'feature-**'
+      - 'feature/**'
     
 defaults:
   run:
