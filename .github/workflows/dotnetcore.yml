@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master, BDD ]
+    branches: [ BDD ]
   pull_request:
-    branches: [ master, BDD ]
+    branches: [ BDD ]
     
 defaults:
   run:
