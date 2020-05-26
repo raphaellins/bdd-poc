@@ -1,1 +1,3 @@
 .vs
+componenttest/obj/Debug/*
+logisticapp/obj/Debug/*
