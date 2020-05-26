@@ -1,1 +1,1 @@
-<h2>BDD TEST</h2>
+<h2>Behavior Driven Test for dotnet core</h2>
