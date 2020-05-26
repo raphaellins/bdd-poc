@@ -1,34 +1,42 @@
-using System.Linq;
 using LightBDD.Framework;
-using LightBDD.NUnit3;
-using NUnit.Framework;
 using System.Net.Http;
+using LightBDD.XUnit2;
+using pisoms.Models;
+using System.Threading.Tasks;
+using Xunit;
+using System.Net;
 
 namespace componenttest.Features
 {
 
     public partial class Logistica_feature : FeatureFixture
     {
-        static HttpClient client = new HttpClient();
+        private readonly HttpClient _client;
+        private State<Category> _categoryRequest;
+        private State<HttpResponseMessage> _response;
 
-        [SetUp]
-        public void SetUp()
+        public Logistica_feature()
         {
+            _client = TestServer.GetClient();
         }
 
-        private void Given_iam_in()
+        private async Task Given_iam_in()
         {
-            Assert.That(true, Is.True);
+            _categoryRequest = new Category
+            {
+                Id = 99929,
+                Title = "My Category"
+            };
         }
 
-        private void When_add_product()
+        private async Task When_add_product()
         {
-            Assert.That(true, Is.True);
+             _response = await _client.ListCategory();
         }
 
-        private void Then_i_can()
+        private async Task Then_i_can()
         {
-            Assert.That(true, Is.True);
+            Assert.Equal(HttpStatusCode.OK, _response.GetValue().StatusCode);
         }
 
     }
