@@ -1,7 +1,7 @@
 using LightBDD.Framework;
-using LightBDD.NUnit3;
 using System.Threading.Tasks;
 using LightBDD.Framework.Scenarios;
+using LightBDD.XUnit2;
 
 namespace componenttest.Features
 {
@@ -11,17 +11,15 @@ namespace componenttest.Features
         As a costumer
         I want to add products to basket"
     )]
-    public partial class Logistica_feature
+    public partial class Logistica_feature : FeatureFixture
     {
         [Scenario]
-        [Label("Ticket-6")]
         public async Task No_product_in_stock()
         {
-            await Runner.AddSteps(
-                    Given_iam_in,
-                    When_add_product,
-                    Then_i_can)
-                .RunAsync();
+            await Runner.RunScenarioAsync(
+                   _ => Given_iam_in(),
+                    _ => When_add_product(),
+                    _ => Then_i_can());
         }
     }
 }
