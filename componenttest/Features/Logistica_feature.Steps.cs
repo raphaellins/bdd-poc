@@ -5,6 +5,11 @@ using pisoms.Models;
 using System.Threading.Tasks;
 using Xunit;
 using System.Net;
+using Moq;
+using pisoms.Data;
+using Microsoft.EntityFrameworkCore;
+using pisoms.Service;
+using pisoms.Services.Interfaces;
 
 namespace componenttest.Features
 {
@@ -31,6 +36,7 @@ namespace componenttest.Features
 
         private async Task When_add_product()
         {
+
              _response = await _client.ListCategory();
         }
 

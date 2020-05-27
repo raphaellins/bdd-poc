@@ -2,11 +2,20 @@ using System;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net.Http;
 using pisomsapp;
+using System.IO;
+using Microsoft.Extensions.Configuration;
+using Xunit;
+using Moq;
+using pisoms.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using pisoms.Service;
+using componenttest.MockedServices;
 
 namespace componenttest
 {
-    internal static class TestServer
+    internal class TestServer : IClassFixture<WebApplicationFactory<Startup>>
     {
+
         private static WebApplicationFactory<Startup> Instance { get; set; }
 
         public static HttpClient GetClient() => Instance?.CreateDefaultClient()
@@ -14,10 +23,24 @@ namespace componenttest
 
         public static void Initialize()
         {
-            Instance = new WebApplicationFactory<Startup>();
-            // Actually the WebApplicationFactory has a problem that until CreateDefaultClient() is called, no underlying TestServer instance is created.
-            // Also, the underlying TestServer creation has a race condition, calling it from tests running in parallel may cause multiple servers to be spawned.
-            Instance.CreateDefaultClient();
+            var projectDir = Directory.GetCurrentDirectory();
+            var configPath = Path.Combine(projectDir, "appsettings.Testing.json");
+
+            Instance = new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
+            {
+                builder.ConfigureAppConfiguration((context, conf) =>
+                {
+                    conf.AddJsonFile(configPath);
+                });
+
+                builder.ConfigureServices(s =>
+                {
+                   s.AddScoped<ICategoryService, CategoryServiceMock>();
+                });
+            }); ;
+
+            Instance.CreateClient();
+
         }
 
         public static void Dispose() => Instance.Dispose();

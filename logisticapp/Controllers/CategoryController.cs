@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pisoms.Data;
 using pisoms.Models;
+using pisoms.Service;
+using pisoms.Services.Interfaces;
 
 namespace pisoms.Controllers
 {
@@ -12,11 +15,22 @@ namespace pisoms.Controllers
     [Route("v1/categories")]
     public class CategoryController : ControllerBase
     {
+        private ICategoryService categoryService;
+
+        public CategoryController(ICategoryService categoryService)
+        {
+            this.categoryService = categoryService;
+        }
+
         [HttpGet]
         [Route("")]
         public async Task<ActionResult<List<Category>>> Get([FromServices] DataContext context)
         {
             var categories = await context.Categories.ToListAsync();
+
+            var message = categoryService.ReturnMessage();
+
+            Console.WriteLine(message);
 
             return categories;
         }
