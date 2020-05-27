@@ -10,6 +10,7 @@ using pisoms.Data;
 using Microsoft.EntityFrameworkCore;
 using pisoms.Service;
 using pisoms.Services.Interfaces;
+using System;
 
 namespace componenttest.Features
 {
@@ -43,6 +44,9 @@ namespace componenttest.Features
         private async Task Then_i_can()
         {
             Assert.Equal(HttpStatusCode.OK, _response.GetValue().StatusCode);
+            var content = _response.GetValue().Content;
+
+            Console.WriteLine(content.ReadAsStringAsync().Result);
         }
 
     }

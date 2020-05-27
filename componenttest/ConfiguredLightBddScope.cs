@@ -11,6 +11,8 @@ namespace componenttest
         protected override void OnSetUp()
         {
             TestServer.Initialize();
+
+            
         }
 
         protected override void OnTearDown()

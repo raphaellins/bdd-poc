@@ -10,6 +10,10 @@ using pisoms.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using pisoms.Service;
 using componenttest.MockedServices;
+using pisoms.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using pisoms.Models;
 
 namespace componenttest
 {
@@ -33,14 +37,55 @@ namespace componenttest
                     conf.AddJsonFile(configPath);
                 });
 
-                builder.ConfigureServices(s =>
+                builder.ConfigureServices(services =>
                 {
-                   s.AddScoped<ICategoryService, CategoryServiceMock>();
+
+
+                    var serviceProvider = new ServiceCollection()
+                                    .AddEntityFrameworkInMemoryDatabase()
+                                    .BuildServiceProvider();
+
+                    services.AddDbContext<DataContext>(options =>
+                    {
+                        options.UseInMemoryDatabase("InMemoryDbForTesting");
+                        options.UseInternalServiceProvider(serviceProvider);
+                    });
+
+                    var sp = services.BuildServiceProvider();
+                    using (var scope = sp.CreateScope())
+                    {
+                        var scopedServices = scope.ServiceProvider;
+                        var db = scopedServices.GetRequiredService<DataContext>();
+
+                        db.Database.EnsureCreated();
+
+                        try
+                        {
+                            initateDatabase(db);
+                        }
+                        catch (Exception ex)
+                        {
+                            //TODO An error occurred seeding the database. Error: {Message}
+                        }
+                    }
+
+                    services.AddScoped<ICategoryService, CategoryServiceMock>();
                 });
             }); ;
 
             Instance.CreateClient();
 
+        }
+
+        public static async void initateDatabase(DataContext db)
+        {
+            db.Categories.Add(new Category
+            {
+                Id = 9928,
+                Title = "Recorded Before"
+            });
+
+            await db.SaveChangesAsync();
         }
 
         public static void Dispose() => Instance.Dispose();
