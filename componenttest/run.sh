@@ -1,2 +1,0 @@
-dotnet ../logisticapp/
-dotnet test

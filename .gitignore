@@ -1,3 +1,5 @@
 .vs
 componenttest/obj/Debug/*
 logisticapp/obj/Debug/*
+componenttest/bin/*
+componenttest/obj/Debug/netcoreapp3.1/componenttest.csprojAssemblyReference.cache

@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using pisoms.Data;
+using pisoms.Service;
+using pisoms.Services.Interfaces;
 
 namespace pisomsapp
 {
@@ -29,6 +31,7 @@ namespace pisomsapp
         {
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
             services.AddScoped<DataContext, DataContext>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddControllers();
         }
 
