@@ -245,3 +245,9 @@
 /Users/raphael/developer/workspace/bddpoctest/componenttest/obj/Debug/netcoreapp3.1/componenttest.dll
 /Users/raphael/developer/workspace/bddpoctest/componenttest/obj/Debug/netcoreapp3.1/componenttest.pdb
 /Users/raphael/developer/workspace/bddpoctest/componenttest/obj/Debug/netcoreapp3.1/componenttest.genruntimeconfig.cache
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/appsettings.Testing.json
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/Castle.Core.dll
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/Coderful.EntityFramework.Testing.dll
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/EntityFramework.SqlServer.dll
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/EntityFramework.dll
+/Users/raphael/developer/workspace/bddpoctest/componenttest/bin/Debug/netcoreapp3.1/Moq.dll

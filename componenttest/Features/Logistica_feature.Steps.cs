@@ -5,6 +5,11 @@ using pisoms.Models;
 using System.Threading.Tasks;
 using Xunit;
 using System.Net;
+using Moq;
+using pisoms.Data;
+using Microsoft.EntityFrameworkCore;
+using pisoms.Service;
+using pisoms.Services.Interfaces;
 
 namespace componenttest.Features
 {
@@ -31,6 +36,12 @@ namespace componenttest.Features
 
         private async Task When_add_product()
         {
+
+            var categoryServiceMock = new Mock<ICategoryService>();
+
+            categoryServiceMock.Setup((x) => x.ReturnMessage()).Returns("MY MOCK RETURN");
+            
+
              _response = await _client.ListCategory();
         }
 
